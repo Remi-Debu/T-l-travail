@@ -1,0 +1,5 @@
+TYPE_ARTICLE (!CodeT, NomT, #CodeF)
+FOURNISSEUR (!CodeF, NomF)
+ARTICLE (!CodeA, NomA, Prix, #CodeT)
+CONTIENT (#NumT, #CodeA)
+TICKET_CAISSE (!NumT, DateT, Heure, Total)

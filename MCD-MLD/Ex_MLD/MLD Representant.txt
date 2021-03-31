@@ -1,0 +1,5 @@
+TYPE_PRODUIT (!CodeP, NomP, #Matricule)
+REPRESENTANT (!Matricule, NomR, Prenom, #CodeP)
+NOTE_DE_FRAIS (!NumN, Total, #Matricule)
+FRAIS (!NumF, TypeF, Montant)
+CONTIENT (#NumF, #NumN)

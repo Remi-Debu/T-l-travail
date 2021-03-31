@@ -1,0 +1,4 @@
+SECTEUR (!CodeSecteur, NomResponsable, TelResponsable)
+RESTAURANT (!NoRestaurant, NomRestaurant, AdresseRestaurant, TelRestaurant, #CodeSecteur, #MatAgent)
+AGENT_R (!MatAgent, NomAgent, AdresseAgent, TelAgent, #NoRestaurant)
+ECOLDE (!CodeEcole, NomEcole, AdresseEcole, TelEcole, #NoRestaurant)

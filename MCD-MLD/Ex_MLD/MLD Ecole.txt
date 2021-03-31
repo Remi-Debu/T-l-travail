@@ -1,0 +1,3 @@
+ENFANT (!NuméroSS, NomENF, Prenom, #CodeEcole, #CodePostal)
+ECOLE (!CodeEcole, NomEC, #Code_Postal)
+COMMUNE (!Code_Postal, NomC)
