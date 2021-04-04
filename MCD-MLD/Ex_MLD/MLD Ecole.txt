@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 ENFANT (!NuméroSS, NomENF, Prenom, #CodeEcole, #CodePostal)
 ECOLE (!CodeEcole, NomEC, #Code_Postal)
+=======
+ENFANT (!NuméroSS, NomENF, Prenom, #CodeEcole, #CodePostal)
+ECOLE (!CodeEcole, NomEC, #Code_Postal)
+>>>>>>> 4dd7b61 (maj)
 COMMUNE (!Code_Postal, NomC)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 $tab = array("bonjour", "tout", "le", "monde");
 $mot = readline("Entrer le mot recherché : ");
@@ -16,3 +17,23 @@ if ($existe == true) {
 } else {
     echo "Pas trouvé";
 }
+=======
+<?php
+$tab = array("bonjour", "tout", "le", "monde");
+$mot = readline("Entrer le mot recherché : ");
+$existe = false;
+
+for ($i = 0; $i < count($tab) && $existe != true; $i++) {
+    if ($mot == $tab[$i]) {
+        $existe = true;
+    } else {
+        $existe = false;
+    }
+}
+
+if ($existe == true) {
+    echo "Trouvé";
+} else {
+    echo "Pas trouvé";
+}
+>>>>>>> 4dd7b61 (maj)

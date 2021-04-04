@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 SECTEUR (!CodeSecteur, NomResponsable, TelResponsable)
 RESTAURANT (!NoRestaurant, NomRestaurant, AdresseRestaurant, TelRestaurant, #CodeSecteur, #MatAgent)
 AGENT_R (!MatAgent, NomAgent, AdresseAgent, TelAgent, #NoRestaurant)
+=======
+SECTEUR (!CodeSecteur, NomResponsable, TelResponsable)
+RESTAURANT (!NoRestaurant, NomRestaurant, AdresseRestaurant, TelRestaurant, #CodeSecteur, #MatAgent)
+AGENT_R (!MatAgent, NomAgent, AdresseAgent, TelAgent, #NoRestaurant)
+>>>>>>> 4dd7b61 (maj)
 ECOLDE (!CodeEcole, NomEcole, AdresseEcole, TelEcole, #NoRestaurant)

@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 TYPE_PRODUIT (!CodeP, NomP, #Matricule)
 REPRESENTANT (!Matricule, NomR, Prenom, #CodeP)
 NOTE_DE_FRAIS (!NumN, Total, #Matricule)
 FRAIS (!NumF, TypeF, Montant)
+=======
+TYPE_PRODUIT (!CodeP, NomP, #Matricule)
+REPRESENTANT (!Matricule, NomR, Prenom, #CodeP)
+NOTE_DE_FRAIS (!NumN, Total, #Matricule)
+FRAIS (!NumF, TypeF, Montant)
+>>>>>>> 4dd7b61 (maj)
 CONTIENT (#NumF, #NumN)

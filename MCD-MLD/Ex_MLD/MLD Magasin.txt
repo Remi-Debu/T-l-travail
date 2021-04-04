@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 TYPE_ARTICLE (!CodeT, NomT, #CodeF)
 FOURNISSEUR (!CodeF, NomF)
 ARTICLE (!CodeA, NomA, Prix, #CodeT)
 CONTIENT (#NumT, #CodeA)
+=======
+TYPE_ARTICLE (!CodeT, NomT, #CodeF)
+FOURNISSEUR (!CodeF, NomF)
+ARTICLE (!CodeA, NomA, Prix, #CodeT)
+CONTIENT (#NumT, #CodeA)
+>>>>>>> 4dd7b61 (maj)
 TICKET_CAISSE (!NumT, DateT, Heure, Total)

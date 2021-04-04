@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 VOYAGEUR (!NumPers, Nom, Prenom, DateNaissance, PermisB, NumPermis)
 BENEFICIER (#NumPers, #NumTypeCarte, NumCarte, DateFin)
 TYPE_CARTE (!NumTypeCarte, NomCarte, #CodeCie)
+=======
+VOYAGEUR (!NumPers, Nom, Prenom, DateNaissance, PermisB, NumPermis)
+BENEFICIER (#NumPers, #NumTypeCarte, NumCarte, DateFin)
+TYPE_CARTE (!NumTypeCarte, NomCarte, #CodeCie)
+>>>>>>> 4dd7b61 (maj)
 COMPAGNIE (!CodeCie, NomCie)
