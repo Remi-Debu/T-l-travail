@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-create database [if not exists] emp_serv;
-create table employes
+CREATE DATABASE [if NOT exists] emp_serv;
+CREATE TABLE employes
 (
-    noemp int(4) primary key not null,
+    noemp int(4) primary key NOT NULL,
     nom varchar(20),
     prenom varchar(20),
     emploi varchar(20),
@@ -10,23 +9,23 @@ create table employes
     embauche date,
     sal decimal(9,2),
     comm decimal(9,2),
-    noserv int(2) not null
+    noserv int(2) NOT NULL
 );
-create table services
+CREATE TABLE services
 (
-    noserv int(2) not null,
+    noserv int(2) NOT NULL,
     service varchar(20),
     ville varchar(20),
     primary key (noserv)
 );
 
-alter table employes
-add constraint foreign key (noserv) references services(noserv);
-alter table employes
-add constraint foreign key (sup) references employes(noemp);
+ALTER TABLE employes
+ADD CONSTRAINT FOREIGN KEY (noserv) REFERENCES services(noserv);
+ALTER TABLE employes
+ADD CONSTRAINT FOREIGN KEY (sup) REFERENCES employes(noemp);
 
-insert into services(noserv,service,ville) 
-values 
+INSERT INTO services(noserv,service,ville) 
+VALUES 
 (1,'DIRECTION','PARIS'),
 (2,'LOGISTIQUE','SECLIN'),
 (3,'VENTES','ROUBAIX'),
@@ -35,615 +34,554 @@ values
 (6,'COMPTABILITE','LILLE'),
 (7,'TECHNIQUE','ROUBAIX');
 
-insert into employe(noemp,nom,prenom,emploi,sup,embauche,sal,comm,noserv)
-values
-(1000,'LEROY','PAUL','PRESIDENT',null,'1987-10-25',55005.5,null,1),
-(1100,'DELPIERRE','DOROTHEE','SECRETAIRE',1000,'1987-10-25',12351.24,null,1);
+INSERT INTO employe(noemp,nom,prenom,emploi,sup,embauche,sal,comm,noserv)
+VALUES
+(1000,'LEROY','PAUL','PRESIDENT',NULL,'1987-10-25',55005.5,NULL,1),
+(1100,'DELPIERRE','DOROTHEE','SECRETAIRE',1000,'1987-10-25',12351.24,NULL,1);
 (1101,'DUMONT','LOUIS','VENDEUR',1300,'1987-10-25',9047.9, 0.0, 1),
 (1102,'MINET','MARC','VENDEUR',1300,'1987-10-25',8085.81,17230,1),
-(1104,'NYS','ETIENNE','TECHNICIEN',1200,'1987-10-25',12342.23,null,1),
-(1105,'DENIMAL','JEROME','COMPTABLE',1600,'1987-10-25',15746.57,null,1),
-(1200,'LEMAIRE','GUY','DIRECTEUR',1000,'1987-03-11',36303.63,null,2),
-(1201,'MARTIN','JEAN','TECHNICIEN',1200,'1987-06-25',11235.12,null,2),
-(1202,'DUPONT','JACQUES','TECHNICIEN',1200,'1988-10-30',10313.03,null,2),
+(1104,'NYS','ETIENNE','TECHNICIEN',1200,'1987-10-25',12342.23,NULL,1),
+(1105,'DENIMAL','JEROME','COMPTABLE',1600,'1987-10-25',15746.57,NULL,1),
+(1200,'LEMAIRE','GUY','DIRECTEUR',1000,'1987-03-11',36303.63,NULL,2),
+(1201,'MARTIN','JEAN','TECHNICIEN',1200,'1987-06-25',11235.12,NULL,2),
+(1202,'DUPONT','JACQUES','TECHNICIEN',1200,'1988-10-30',10313.03,NULL,2),
 (1300,'LENOIR','GERARD','DIRECTEUR',1000,'1987-04-02',31353.14,13071,3),
 (1301,'GERARD','ROBERT','VENDEUR',1300,'1999-04-16',7694.77,12430,3),
-(1303,'MASURE','EMILE','TECHNICIEN',1200,'1988-06-17',10451.05,null,3),
-(1500,'DUPONT','JEAN','DIRECTEUR',1000,'1987-10-23',28434.84,null,5),
-(1501,'DUPIRE','PIERRE','ANALYSTE',1500,'1984-10-24',23102.31,null,5),
-(1502,'DURAND','BERNARD','PROGRAMMEUR',1500,'1987-07-30',13201.32,null,5),
-(1503,'DELNATTE','LUC','PUPITREUR',1500,'1999-01-15',8801.01,null,5),
-(1600,'LAVARE','PAUL','DIRECTEUR',1000,'1991-12-13',31238.12,null,5),
-(1601,'CARON','ALAIN','COMPTABLE',1600,'1985-09-16',33003.3,null,5),
+(1303,'MASURE','EMILE','TECHNICIEN',1200,'1988-06-17',10451.05,NULL,3),
+(1500,'DUPONT','JEAN','DIRECTEUR',1000,'1987-10-23',28434.84,NULL,5),
+(1501,'DUPIRE','PIERRE','ANALYSTE',1500,'1984-10-24',23102.31,NULL,5),
+(1502,'DURAND','BERNARD','PROGRAMMEUR',1500,'1987-07-30',13201.32,NULL,5),
+(1503,'DELNATTE','LUC','PUPITREUR',1500,'1999-01-15',8801.01,NULL,5),
+(1600,'LAVARE','PAUL','DIRECTEUR',1000,'1991-12-13',31238.12,NULL,5),
+(1601,'CARON','ALAIN','COMPTABLE',1600,'1985-09-16',33003.3,NULL,5),
 (1602,'DUBOIS','JULES','VENDEUR',1300,'1990-12-20',9520.95,35535,5),
-(1603,'MOREL','ROBERT','COMPTABLE',1600,'1985-07-18',33003.3,null,5),
+(1603,'MOREL','ROBERT','COMPTABLE',1600,'1985-07-18',33003.3,NULL,5),
 (1604,'HAVET','ALAIN','VENDEUR',1300,'1991-01-01',9388.94,33415,5),
-(1605,'RICHARD','JULES','COMPTABLE',1600,'1985-10-22',33503.35,null,6),
-(1615,'DUPREZ','JEAN','BALAYEUR',1000,'1998-10-22',6000.6,null,6);
+(1605,'RICHARD','JULES','COMPTABLE',1600,'1985-10-22',33503.35,NULL,6),
+(1615,'DUPREZ','JEAN','BALAYEUR',1000,'1998-10-22',6000.6,NULL,6);
 
-insert into employes(noemp,nom,prenom,emploi,sup,embauche,sal,comm,noserv)
-values
-(1105,'DENIMAL','JEROME','COMPTABLE',1600,'1987-10-25',15746.57,null,1),
+INSERT INTO employes(noemp,nom,prenom,emploi,sup,embauche,sal,comm,noserv)
+VALUES
+(1105,'DENIMAL','JEROME','COMPTABLE',1600,'1987-10-25',15746.57,NULL,1),
 (1102,'MINET','MARC','VENDEUR',1300,'1987-10-25',8085.81,17230,1),
 (1101,'DUMONT','LOUIS','VENDEUR',1300,'1987-10-25',9047.9, 0.0, 1),
-(1104,'NYS','ETIENNE','TECHNICIEN',1200,'1987-10-25',12342.23,null,1),
-(1100,'DELPIERRE','DOROTHEE','SECRETAIRE',1000,'1987-10-25',12351.24,null,1),
-(1000,'LEROY','PAUL','PRESIDENT',null,'1987-10-25',55005.5,null,1),
-(1202,'DUPONT','JACQUES','TECHNICIEN',1200,'1988-10-30',10313.03,null,2),
-(1201,'MARTIN','JEAN','TECHNICIEN',1200,'1987-06-25',11235.12,null,2),
-(1200,'LEMAIRE','GUY','DIRECTEUR',1000,'1987-03-11',36303.63,null,2),
+(1104,'NYS','ETIENNE','TECHNICIEN',1200,'1987-10-25',12342.23,NULL,1),
+(1100,'DELPIERRE','DOROTHEE','SECRETAIRE',1000,'1987-10-25',12351.24,NULL,1),
+(1000,'LEROY','PAUL','PRESIDENT',NULL,'1987-10-25',55005.5,NULL,1),
+(1202,'DUPONT','JACQUES','TECHNICIEN',1200,'1988-10-30',10313.03,NULL,2),
+(1201,'MARTIN','JEAN','TECHNICIEN',1200,'1987-06-25',11235.12,NULL,2),
+(1200,'LEMAIRE','GUY','DIRECTEUR',1000,'1987-03-11',36303.63,NULL,2),
 (1301,'GERARD','ROBERT','VENDEUR',1300,'1999-04-16',7694.77,12430,3),
-(1303,'MASURE','EMILE','TECHNICIEN',1200,'1988-06-17',10451.05,null,3),
+(1303,'MASURE','EMILE','TECHNICIEN',1200,'1988-06-17',10451.05,NULL,3),
 (1300,'LENOIR','GERARD','DIRECTEUR',1000,'1987-04-02',31353.14,13071,3),
-(1603,'MOREL','ROBERT','COMPTABLE',1600,'1985-07-18',33003.3,null,5),
-(1601,'CARON','ALAIN','COMPTABLE',1600,'1985-09-16',33003.3,null,5),
-(1503,'DELNATTE','LUC','PUPITREUR',1500,'1999-01-15',8801.01,null,5),
-(1502,'DURAND','BERNARD','PROGRAMMEUR',1500,'1987-07-30',13201.32,null,5),
-(1501,'DUPIRE','PIERRE','ANALYSTE',1500,'1984-10-24',23102.31,null,5),
+(1603,'MOREL','ROBERT','COMPTABLE',1600,'1985-07-18',33003.3,NULL,5),
+(1601,'CARON','ALAIN','COMPTABLE',1600,'1985-09-16',33003.3,NULL,5),
+(1503,'DELNATTE','LUC','PUPITREUR',1500,'1999-01-15',8801.01,NULL,5),
+(1502,'DURAND','BERNARD','PROGRAMMEUR',1500,'1987-07-30',13201.32,NULL,5),
+(1501,'DUPIRE','PIERRE','ANALYSTE',1500,'1984-10-24',23102.31,NULL,5),
 (1604,'HAVET','ALAIN','VENDEUR',1300,'1991-01-01',9388.94,33415,5),
 (1602,'DUBOIS','JULES','VENDEUR',1300,'1990-12-20',9520.95,35535,5),
-(1600,'LAVARE','PAUL','DIRECTEUR',1000,'1991-12-13',31238.12,null,5),
-(1500,'DUPONT','JEAN','DIRECTEUR',1000,'1987-10-23',28434.84,null,5),
-(1605,'RICHARD','JULES','COMPTABLE',1600,'1985-10-22',33503.35,null,6),
-(1615,'DUPREZ','JEAN','BALAYEUR',1000,'1998-10-22',6000.6,null,6);
+(1600,'LAVARE','PAUL','DIRECTEUR',1000,'1991-12-13',31238.12,NULL,5),
+(1500,'DUPONT','JEAN','DIRECTEUR',1000,'1987-10-23',28434.84,NULL,5),
+(1605,'RICHARD','JULES','COMPTABLE',1600,'1985-10-22',33503.35,NULL,6),
+(1615,'DUPREZ','JEAN','BALAYEUR',1000,'1998-10-22',6000.6,NULL,6);
 
 /*-1-*/
-select * from services;
+SELECT * FROM services;
+
 /*-2-*/
-select noserv, service, ville from services;
+SELECT noserv, service, ville FROM services;
+
 /*-3-*/
-select noserv, service from services;
+SELECT noserv, service FROM services;
+
 /*-4-*/
-select * from employes;
+SELECT * FROM employes;
+
 /*-5-*/
-select emploi from employes;
+SELECT emploi FROM employes;
+
 /*-6-*/
-select distinct emploi from employes;
+SELECT DISTINCT emploi FROM employes;
+
 /*-7-*/
-select * from employes where noserv=3;
+SELECT * FROM employes WHERE noserv=3;
+
 /*-8-*/
-select noemp, nom, prenom, noserv from employes where emploi = "TECHNICIEN";
+SELECT noemp, nom, prenom, noserv FROM employes WHERE emploi = "TECHNICIEN";
+
 /*-9-*/
-select noserv, service from services where noserv > 2;
+SELECT noserv, service FROM services WHERE noserv > 2;
+
 /*-10-*/
-select noserv, service from services where noserv <= 2;
+SELECT noserv, service FROM services WHERE noserv <= 2;
+
 /*-11-*/
-select * from employes where comm < sal;
-select * from employes where comm < sal or comm is null;
+SELECT * FROM employes WHERE comm < sal;
+
+SELECT * FROM employes WHERE comm < sal OR comm IS NULL;
+
 /*-12-*/
-select * from employes where comm is null or comm = 0;
+SELECT * FROM employes WHERE comm IS NULL OR comm = 0;
+
 /*-13-*/
-select * from employes where comm is not null order by comm;
+SELECT * FROM employes WHERE comm IS NOT NULL ORDER BY comm;
+
 /*-14-*/
-select * from employes where sup is not null;
+SELECT * FROM employes WHERE sup IS NOT NULL;
+
 /*-15-*/
-select * from employes where sup is null;
+SELECT * FROM employes WHERE sup IS NULL;
+
 /*-16-*/
-select nom, emploi, sal, noserv from employes where noserv = 5 and sal > 20000;
+SELECT nom, emploi, sal, noserv FROM employes WHERE noserv = 5 AND sal > 20000;
+
 /*-17-*/
-select * from employes where noserv = 6 and emploi = "VENDEUR" and sal >= 9500;
+SELECT * FROM employes WHERE noserv = 6 AND emploi = "VENDEUR" AND sal >= 9500;
+
 /*-18-*/
-select * from employes where emploi = "PRESIDENT" or emploi = "DIRECTEUR";
+SELECT * FROM employes WHERE emploi = "PRESIDENT" OR emploi = "DIRECTEUR";
+
 /*-19-*/
-select * from employes where emploi = "DIRECTEUR" and noserv != 3;
+SELECT * FROM employes WHERE emploi = "DIRECTEUR" AND noserv != 3;
+
 /*-20-*/
-select * from employes where (noserv = 1 and emploi = "TECHNICIEN") or emploi = "DIRECTEUR";
+SELECT * FROM employes WHERE (noserv = 1 AND emploi = "TECHNICIEN") OR emploi = "DIRECTEUR";
+
 /*-21-*/
-select * from employes where noserv = 1 and (emploi = "TECHNICIEN" or emploi = "DIRECTEUR");
+SELECT * FROM employes WHERE noserv = 1 AND (emploi = "TECHNICIEN" OR emploi = "DIRECTEUR");
+
 /*-22-*/
-select * from employes where noserv = 1 and (emploi = "DIRECTEUR" or emploi = "TECHNICIEN");
+SELECT * FROM employes WHERE noserv = 1 AND (emploi = "DIRECTEUR" OR emploi = "TECHNICIEN");
+
 /*-23-*/
-select * from employes where noserv = 1 and emploi != "DIRECTEUR" and emploi != "TECHNICIEN";
+SELECT * FROM employes WHERE noserv = 1 AND emploi != "DIRECTEUR" AND emploi != "TECHNICIEN";
+
 /*-24-*/
-select * from employes where emploi in ('TECHNICIEN','COMPTABLE','VENDEUR');
+SELECT * FROM employes WHERE emploi IN ('TECHNICIEN','COMPTABLE','VENDEUR');
+
 /*-25-*/
-select * from employes where emploi not in ('TECHNICIEN', 'COMPTABLE', 'VENDEUR');
+SELECT * FROM employes WHERE emploi NOT IN ('TECHNICIEN', 'COMPTABLE', 'VENDEUR');
+
 /*-26-*/
-select * from employes where emploi = 'DIRECTEUR' and noserv in (2,4,5);
+SELECT * FROM employes WHERE emploi = 'DIRECTEUR' AND noserv IN (2,4,5);
+
 /*-27-*/
-select * from employes where sup is not null and noserv not in (1,3,5);
+SELECT * FROM employes WHERE sup IS NOT NULL AND noserv NOT IN (1,3,5);
+
 /*-28-*/
-select * from employes where sal between 20000 and 40000;
+SELECT * FROM employes WHERE sal BETWEEN 20000 AND 40000;
+
 /*-29-*/
-select * from employes where sal not between 20000 and 40000;
+SELECT * FROM employes WHERE sal NOT BETWEEN 20000 AND 40000;
+
 /*-30-*/
-select * from employes where emploi != 'DIRECTEUR' and embauche between '1988-01-01' and '1988-12-31';
-select * from employes where emploi != 'DIRECTEUR' and embauche like '1988%';
+SELECT * FROM employes WHERE emploi != 'DIRECTEUR' AND embauche BETWEEN '1988-01-01' AND '1988-12-31';
+
+SELECT * FROM employes WHERE emploi != 'DIRECTEUR' AND embauche LIKE '1988%';
+
 /*-31-*/
-select * from employes where emploi = 'DIRECTEUR' and noserv between 2 and 5;
+SELECT * FROM employes WHERE emploi = 'DIRECTEUR' AND noserv BETWEEN 2 AND 5;
+
 /*-32-*/
-select * from employes where nom like 'M%';
+SELECT * FROM employes WHERE nom LIKE 'M%';
+
 /*-33-*/
-select * from employes where nom like '%T';
+SELECT * FROM employes WHERE nom LIKE '%T';
+
 /*-34-*/
-select * from employes where nom like '%E%E%';
+SELECT * FROM employes WHERE nom LIKE '%E%E%';
+
 /*-35-*/
-select * from employes where nom like '%E%' and nom not like '%E%E%';
+SELECT * FROM employes WHERE nom LIKE '%E%' AND nom NOT LIKE '%E%E%';
+
 /*-36-*/
-select * from employes where nom like '%N%' and nom like '%O%';
+SELECT * FROM employes WHERE nom LIKE '%N%' AND nom LIKE '%O%';
+
 /*-37-*/
-select * from employes where nom like '_____N';
+SELECT * FROM employes WHERE nom LIKE '_____N';
+
 /*-38-*/
-select * from employes where nom like '__R%';
+SELECT * FROM employes WHERE nom LIKE '__R%';
+
 /*-39-*/
-select * from employes where nom not like '_____';
+SELECT * FROM employes WHERE nom NOT LIKE '_____';
+
 /*-40-*/
-select nom, prenom, noserv, sal from employes where noserv = 3 order by sal asc;
+SELECT nom, prenom, noserv, sal FROM employes WHERE noserv = 3 ORDER BY sal ASC;
+
 /*-41-*/
-select nom, prenom, noserv, sal from employes where noserv = 3 order by sal desc;
+SELECT nom, prenom, noserv, sal FROM employes WHERE noserv = 3 ORDER BY sal DESC;
+
 /*-42-*/
-select nom, prenom, noserv, sal from employes where noserv = 3 order by 4 asc;
-select nom, prenom, noserv, sal from employes where noserv = 3 order by 4 desc;
+SELECT nom, prenom, noserv, sal FROM employes WHERE noserv = 3 ORDER BY 4 ASC;
+
+SELECT nom, prenom, noserv, sal FROM employes WHERE noserv = 3 ORDER BY 4 DESC;
+
 /*-43-*/
-select nom, prenom, noserv, sal, emploi from employes order by emploi asc, sal desc;
+SELECT nom, prenom, noserv, sal, emploi FROM employes ORDER BY emploi ASC, sal DESC;
+
 /*-44-*/
-select nom, prenom, noserv, sal, emploi from employes order by 5 asc, 4 desc;
+SELECT nom, prenom, noserv, sal, emploi FROM employes ORDER BY 5 ASC, 4 DESC;
+
 /*-45-*/
-select nom, prenom, noserv, comm from employes where noserv = 3 order by comm;
+SELECT nom, prenom, noserv, comm FROM employes WHERE noserv = 3 ORDER BY comm;
+
 /*-46-*/
-select nom, prenom, noserv, comm from employes where noserv = 3 and comm order by comm desc;
+SELECT nom, prenom, noserv, comm FROM employes WHERE noserv = 3 AND comm ORDER BY comm DESC;
+
 /*-47-*/
-select nom, prenom, emploi, service from employes join services on employes.noserv = services.noserv;
+SELECT nom, prenom, emploi, service FROM employes JOIN services ON employes.noserv = services.noserv;
+
 /*-48-*/
-select nom, emploi, employes.noserv, service from employes join services on employes.noserv = services.noserv;
+SELECT nom, emploi, employes.noserv, service FROM employes JOIN services ON employes.noserv = services.noserv;
+
 /*-49-*/
-select nom, emploi, s.noserv, service from employes as e join services as s on e.noserv = s.noserv;
+SELECT nom, emploi, s.noserv, service FROM employes AS e JOIN services AS s ON e.noserv = s.noserv;
+
 /*-50-*/
-select nom, emploi, services.* from employes join services on employes.noserv = services.noserv;
+SELECT nom, emploi, services.* FROM employes JOIN services ON employes.noserv = services.noserv;
+
 /*-51-*/
-select e1.nom as nomEmploye, e1.embauche as embaucheEmploye, e1.sup as numeroSuperieur, e2.noemp as numeroEmploye, e2.nom as nomChef, e2.embauche as embaucheChef
-from employes as e1 left join employes as e2 on e1.sup = e2.noemp
-where e1.embauche < e2.embauche order by e1.nom,e2.nom;
+SELECT e1.nom AS nomEmploye, e1.embauche AS embaucheEmploye, e1.sup AS numeroSuperieur, e2.noemp AS numeroEmploye, e2.nom AS nomChef, e2.embauche AS embaucheChef
+FROM employes AS e1 LEFT JOIN employes AS e2 ON e1.sup = e2.noemp
+WHERE e1.embauche < e2.embauche ORDER BY e1.nom,e2.nom;
 
-select e1.nom as nomEmploye, e1.embauche as embaucheEmploye, e1.sup as numeroSuperieur, e2.noemp as numeroEmploye, e2.nom as nomChef, e2.embauche as embaucheChef
-from employes as e1 inner join employes as e2 on e1.sup = e2.noemp
-where e1.embauche < e2.embauche order by e1.nom,e2.nom;
+SELECT e1.nom AS nomEmploye, e1.embauche AS embaucheEmploye, e1.sup AS numeroSuperieur, e2.noemp AS numeroEmploye, e2.nom AS nomChef, e2.embauche AS embaucheChef
+FROM employes AS e1 INNER JOIN employes AS e2 ON e1.sup = e2.noemp
+WHERE e1.embauche < e2.embauche ORDER BY e1.nom,e2.nom;
+
 /*-52-*/
-select prenom from employes where emploi = 'DIRECTEUR'
-union 
-select prenom from employes where emploi = 'TECHNICIEN' and noserv = 1;
-/*-53-*/
-select services.noserv from services where noserv not in (select services.noserv from services join employes on services.noserv = employes.noserv);
-select services.noserv from employes right join services on employes.noserv = services.noserv where employes.noserv is null;
-/*-54-*/
-select distinct services.noserv, services.service from employes left join services on employes.noserv = services.noserv where employes.noserv is not null;
-/*-55-*/
-select * from employes where employes.noserv in (select services.noserv from services where ville = 'LILLE');
-select employes.*, services.ville from employes,services where employes.noserv in (select s1.noserv from services as s1 where ville = 'LILLE') and employes.noserv = services.noserv;
-/*-56-*/
-select * from employes as e1 where e1.nom != 'DUBOIS' and exists (select * from employes as e2 where e1.sup = e2.sup and e2.nom = 'DUBOIS');
-select * from employes where sup = ( select sup from employes where nom = 'DUBOIS' ) and nom != 'DUBOIS';
-select e2.* from employes as e1 join employes as e2 on e1.sup = e2.sup where e1.nom = 'DUBOIS' and e2.nom != e1.nom;
-/*-57-*/
-select * from employes where embauche in (select embauche from employes where nom = 'DUMONT');
-/*-58-*/
-select nom, e1.embauche from employes e1 where embauche < (select e2.embauche from employes e2 where nom = 'MINET') order by embauche;
-/*-59-*/
-select nom, prenom, embauche from employes where embauche < all(select e2.embauche from employes e2 where e2.noserv = 6);
-select nom, prenom, embauche from employes where embauche < (select min(e2.embauche) from employes as e2 where e2.noserv = 6);
-/*-60-*/
-select nom, prenom, sal from employes where sal > (select min(e2.sal) from employes e2 where e2.noserv = 3) order by sal;
-select nom, prenom, sal from employes e1 where exists ( select * from employes e2 where e2.noserv = 3 and e1.sal > e2.sal) order by sal;
-/*-61-*/
-select nom, e1.noserv, emploi, sal from employes e1 inner join services s1 on e1.noserv = s1.noserv 
-where s1.ville in (select ville from employes e2 inner join services s2 on e2.noserv = s2.noserv where nom = 'HAVET');
+SELECT prenom FROM employes WHERE emploi = 'DIRECTEUR'
+UNION 
+SELECT prenom FROM employes WHERE emploi = 'TECHNICIEN' AND noserv = 1;
 
-select nom, noserv, emploi, sal from employes natural join services
-where ville in (select ville from services natural join employes where nom = 'HAVET');
+/*-53-*/
+SELECT services.noserv FROM services WHERE noserv NOT IN (SELECT services.noserv FROM services JOIN employes ON services.noserv = employes.noserv);
+
+SELECT services.noserv FROM employes RIGHT JOIN services ON employes.noserv = services.noserv WHERE employes.noserv IS NULL;
+
+/*-54-*/
+SELECT DISTINCT services.noserv, services.service FROM employes LEFT JOIN services ON employes.noserv = services.noserv WHERE employes.noserv IS NOT NULL;
+
+/*-55-*/
+SELECT * FROM employes WHERE employes.noserv IN (SELECT services.noserv FROM services WHERE ville = 'LILLE');
+
+SELECT employes.*, services.ville FROM employes,services 
+WHERE employes.noserv IN (SELECT s1.noserv FROM services AS s1 WHERE ville = 'LILLE') AND employes.noserv = services.noserv;
+
+/*-56-*/
+SELECT * FROM employes AS e1 WHERE e1.nom != 'DUBOIS' AND exists (SELECT * FROM employes AS e2 WHERE e1.sup = e2.sup AND e2.nom = 'DUBOIS');
+
+SELECT * FROM employes WHERE sup = ( SELECT sup FROM employes WHERE nom = 'DUBOIS' ) AND nom != 'DUBOIS';
+
+SELECT e2.* FROM employes AS e1 JOIN employes AS e2 ON e1.sup = e2.sup WHERE e1.nom = 'DUBOIS' AND e2.nom != e1.nom;
+
+/*-57-*/
+SELECT * FROM employes WHERE embauche IN (SELECT embauche FROM employes WHERE nom = 'DUMONT');
+
+/*-58-*/
+SELECT nom, e1.embauche FROM employes e1 WHERE embauche < (SELECT e2.embauche FROM employes e2 WHERE nom = 'MINET') ORDER BY embauche;
+
+/*-59-*/
+SELECT nom, prenom, embauche FROM employes WHERE embauche < all(SELECT e2.embauche FROM employes e2 WHERE e2.noserv = 6);
+
+SELECT nom, prenom, embauche FROM employes WHERE embauche < (SELECT MIN(e2.embauche) FROM employes AS e2 WHERE e2.noserv = 6);
+
+/*-60-*/
+SELECT nom, prenom, sal FROM employes WHERE sal > (SELECT MIN(e2.sal) FROM employes e2 WHERE e2.noserv = 3) ORDER BY sal;
+
+SELECT nom, prenom, sal FROM employes e1 WHERE EXISTS ( SELECT * FROM employes e2 WHERE e2.noserv = 3 AND e1.sal > e2.sal) ORDER BY sal;
+
+/*-61-*/
+SELECT nom, e1.noserv, emploi, sal FROM employes e1 INNER JOIN services s1 ON e1.noserv = s1.noserv 
+WHERE s1.ville IN (SELECT ville FROM employes e2 INNER JOIN services s2 ON e2.noserv = s2.noserv WHERE nom = 'HAVET');
+
+SELECT nom, noserv, emploi, sal FROM employes NATURAL JOIN services
+WHERE ville IN (SELECT ville FROM services NATURAL JOIN employes WHERE nom = 'HAVET');
+
 /*-62-*/
-select * from employes where noserv = 1 and emploi in (select emploi from employes where noserv = 3);
+SELECT * FROM employes WHERE noserv = 1 AND emploi IN (SELECT emploi FROM employes WHERE noserv = 3);
+
 /*-63-*/
-select * from employes where noserv = 1 and emploi not in (select emploi from employes where noserv = 3);
+SELECT * FROM employes WHERE noserv = 1 AND emploi NOT IN (SELECT emploi FROM employes WHERE noserv = 3);
+
 /*-64-*/
-select nom, prenom, emploi, sal from employes 
-where emploi in (select emploi from employes where nom = 'CARON') and sal > (select sal from employes where nom = 'CARON');
+SELECT nom, prenom, emploi, sal FROM employes 
+WHERE emploi IN (SELECT emploi FROM employes WHERE nom = 'CARON') AND sal > (SELECT sal FROM employes WHERE nom = 'CARON');
+
 /*-65-*/
-select * from employes 
-where noserv = 1 and emploi in (select e1.emploi from employes e1 inner join services s1 on e1.noserv = s1.noserv where s1.service = 'VENTES');
+SELECT * FROM employes 
+WHERE noserv = 1 AND emploi IN (SELECT e1.emploi FROM employes e1 INNER JOIN services s1 ON e1.noserv = s1.noserv WHERE s1.service = 'VENTES');
+
 /*-66-*/
-select * from employes e1 inner join services s1 on e1.noserv = s1.noserv 
-where ville = 'LILLE' and emploi in (select emploi from employes where nom = 'RICHARD') and nom != 'RICHARD' order by nom;
+SELECT * FROM employes e1 INNER JOIN services s1 ON e1.noserv = s1.noserv 
+WHERE ville = 'LILLE' AND emploi IN (SELECT emploi FROM employes WHERE nom = 'RICHARD') AND nom != 'RICHARD' ORDER BY nom;
+
 /*-67-*/
-select * from employes where sal > (select avg(sal) from employes) order by noserv;
+SELECT * FROM employes WHERE sal > (SELECT AVG(sal) FROM employes) ORDER BY noserv;
+
 /*-68-*/
-select * from employes e1 inner join services s1 on e1.noserv = s1.noserv 
-where service = 'INFORMATIQUE' and DATE_FORMAT(e1.embauche,'%Y') 
-in (select DATE_FORMAT(e2.embauche,'%Y') from employes e2 inner join services s2 on e2.noserv = s2.noserv where s2.service = 'VENTES');
+SELECT * FROM employes e1 INNER JOIN services s1 ON e1.noserv = s1.noserv 
+WHERE service = 'INFORMATIQUE' AND DATE_FORMAT(e1.embauche,'%Y') 
+IN (SELECT DATE_FORMAT(e2.embauche,'%Y') FROM employes e2 INNER JOIN services s2 ON e2.noserv = s2.noserv WHERE s2.service = 'VENTES');
+
 /*-69-*/
-select e1.nom, e1.emploi, s1.service from employes e1 
-inner join employes e2 on e1.sup = e2.noemp  
-inner join services s1 on e1.noserv = s1.noserv 
-where e1.noserv != e2.noserv;
+SELECT e1.nom, e1.emploi, s1.service FROM employes e1 
+INNER JOIN employes e2 ON e1.sup = e2.noemp  
+INNER JOIN services s1 ON e1.noserv = s1.noserv 
+WHERE e1.noserv != e2.noserv;
+
 /*-70-*/
-select e2.nom, e2.prenom, s1.service, e2.sal from employes e1 
-inner join employes e2 on e1.sup = e2.noemp  
-inner join services s1 on e1.noserv = s1.noserv group by e2.nom order by 4 desc;
+SELECT e2.nom, e2.prenom, s1.service, e2.sal FROM employes e1 
+INNER JOIN employes e2 ON e1.sup = e2.noemp  
+INNER JOIN services s1 ON e1.noserv = s1.noserv GROUP BY e2.nom ORDER BY 4 DESC;
+
 /*-71-*/
-select nom, emploi, round(sal,2) as Revenu from employes order by sal desc;
+SELECT nom, emploi, ROUND(sal,2) AS Revenu FROM employes ORDER BY sal DESC;
+
 /*-72-*/
-select nom, sal, comm from employes where comm > sal * 2;
+SELECT nom, sal, comm FROM employes WHERE comm > sal * 2;
+
 /*-73-*/
-select nom, prenom, emploi, round(comm*100/sal,2) as '% Commissions' from employes where emploi = 'VENDEUR' order by 4 desc;
+SELECT nom, prenom, emploi, ROUND(IFNULL(comm,0)*100/sal,2) AS '% Commissions' FROM employes WHERE emploi = 'VENDEUR' ORDER BY 4 DESC;
+
 /*-74-*/
-select nom, emploi, service, round(sal*12,0) as 'Revenu annuel' from employes inner join services on employes.noserv = services.noserv where emploi = 'VENDEUR';
+SELECT nom, emploi, service, ROUND(sal*12,0) AS 'Revenu annuel' FROM employes INNER JOIN services ON employes.noserv = services.noserv WHERE emploi = 'VENDEUR';
+
 /*-75-76-77-*/
-select nom, prenom, emploi, sal as Salaire, round(ifnull(comm,0),0) as 'Gain mensuel', round(sal/12,0) as 'Revenu mensuel' from employes where noserv in (3,5,6);
+SELECT nom, prenom, emploi, sal AS Salaire, ROUND(IFNULL(comm,0),0) AS 'Gain mensuel', ROUND(sal/12,0) AS 'Revenu mensuel' FROM employes WHERE noserv IN (3,5,6);
+
 /*-78-*/
-select nom, emploi, round(sal/22,2) as 'Salaire journalier', round(sal/22/8,2) as 'Salaire horaire' from employes where noserv in (3,5,6);
+SELECT nom, emploi, ROUND(sal/22,2) AS 'Salaire journalier', ROUND(sal/22/8,2) AS 'Salaire horaire' FROM employes WHERE noserv IN (3,5,6);
+
 /*-79-*/
-select nom, emploi, truncate(sal/22,2) as 'Salaire journalier', truncate(sal/22/8,2) as 'Salaire horaire' from employes where noserv in (3,5,6);
+SELECT nom, emploi, TRUNCATE(sal/22,2) AS 'Salaire journalier', TRUNCATE(sal/22/8,2) AS 'Salaire horaire' FROM employes WHERE noserv IN (3,5,6);
+
 /*-80-*/
-select concat(rpad(service,12,' '),' ----> ',ville) as 'Service et Ville' from services;
+SELECT CONCAT(rpad(service, (SELECT MAX(LENGTH(service)) FROM services),' '),' ----> ',ville) AS 'Service et Ville' FROM services;
+
 /*-81-*/
-select @ce := @ce + 1 as 'code emploi', nom, emploi, from employes, (select @ce := 0) as code_emploi;
+SELECT @ce := @ce + 1 AS 'code emploi', nom, emploi FROM employes, (SELECT @ce := 0) AS code_emploi;
+
+SELECT noserv, emploi, (
+    CASE noserv 
+    WHEN 1 THEN '*****'
+    ELSE nom
+    END
+) AS nom 
+FROM employes;
+
 /*-82-*/
-select noemp, left(lpad(nom,length(nom)+5,'*****'),5) as nom, noserv from employes where noserv = 1;
+SELECT noemp, LEFT(LPAD(nom,LENGTH(nom)+5,'*****'),5) AS nom, noserv FROM employes WHERE noserv = 1;
+
 /*-83-*/
-select substring(service,1,5) from services;
+SELECT SUBSTRING(service,1,5) FROM services;
+
 /*-84-*/
-select * from employes where embauche like '1988%';
+SELECT * FROM employes WHERE embauche LIKE '1988%';
+
+SELECT * FROM employes WHERE DATE_FORMAT(embauche, '%Y') = 1988;
+
 /*-85-*/
-select upper(nom) as NOM, left(upper(nom),1) as N, lower(nom) as nom from employes;
+SELECT UPPER(nom) AS NOM, CONCAT(LEFT(UPPER(nom),1),' ',LEFT(UPPER(prenom),1)) AS N, lower(nom) AS nom FROM employes;
+
 /*-86-*/
-select locate('M', nom) as M, locate('E', nom) as E, nom from employes;
+SELECT locate('M', nom) AS M, locate('E', nom) AS E, nom FROM employes;
+
 /*-87-*/
-select length(service) as 'service nb lettre', service from services;
+SELECT LENGTH(service) AS 'service nb lettre', service FROM services;
+
 /*-88-*/
-select nom, emploi, sal, left(RPAD('',sal/55000*30,'▬'),30) as 'Histogramme des salaires' from employes order by sal desc;
+SELECT nom, emploi, sal, LEFT(RPAD('',sal/55000*30,'▬'),30) AS 'Histogramme des salaires' FROM employes ORDER BY sal DESC;
+
 /*-89-*/
-select nom, emploi, embauche from employes where noserv = 6;
+SELECT nom, emploi, embauche FROM employes WHERE noserv = 6;
+
 /*-90-*/
-select nom, emploi, DATE_FORMAT(embauche,'%d-%m-%y') as embauche from employes where noserv = 6;
+SELECT nom, emploi, DATE_FORMAT(embauche,'%d-%m-%y') AS embauche FROM employes WHERE noserv = 6;
+
 /*-91-*/
-select nom, emploi, DATE_FORMAT(embauche,'%a %d %M %Y') as embauche from employes where noserv = 6;
+SELECT nom, emploi, DATE_FORMAT(embauche,'%a %d %M %Y') AS embauche FROM employes WHERE noserv = 6;
+
 /*-92-*/
-select nom, emploi, DATE_FORMAT(embauche,'%a %d %b %y') as embauche from employes where noserv = 6;
+SELECT nom, emploi, DATE_FORMAT(embauche,'%a %d %b %y') AS embauche FROM employes WHERE noserv = 6;
+
 /*-93-*/
-select nom, emploi, DATE_FORMAT(embauche,'%y %b %d') as embauche from employes where noserv = 6;
+SELECT nom, emploi, DATE_FORMAT(embauche,'%y %b %d') AS embauche FROM employes WHERE noserv = 6;
+
 /*-94-*/
-select nom, emploi, DATE_FORMAT(embauche,'%W-%d-%M-%Y') as embauche from employes where noserv = 6;
+SELECT nom, emploi, DATE_FORMAT(embauche,'%W-%d-%M-%Y') AS embauche FROM employes WHERE noserv = 6;
+
 /*-95-*/
-select employes.*, datediff(sysdate(), embauche) as "Jours d'anciennete" from employes;
+SELECT employes.*, DATEDIFF(SYSDATE(), embauche) AS "Jours d'anciennete" FROM employes;
+
 /*-96-*/
-select employes.*, TIMESTAMPDIFF(MONTH, embauche, SYSDATE()) as "Mois d'anciennete" from employes;
+SELECT employes.*, TIMESTAMPDIFF(MONTH, embauche, SYSDATE()) AS "Mois d'anciennete" FROM employes;
+
 /*-97-*/
+SELECT DATE_ADD(embauche, INTERVAL 12 YEAR) AS majorees, embauche FROM employes ORDER BY 1;
 
 /*-98-*/
+SELECT employes.*, YEAR(SYSDATE()) - YEAR(embauche) AS "annee d'anciennete" FROM employes WHERE YEAR(SYSDATE()) - YEAR(embauche) > 12 ORDER BY 10;
 
 /*-99-*/
-select datediff(sysdate(),'1994-06-26') as 'n jours';
+SELECT DATEDIFF(SYSDATE(),'1994-06-26') AS 'n jours';
+
 /*-100-*/
-select TIMESTAMPDIFF(MONTH,'1994-06-26',sysdate()) as 'n mois';
+SELECT TIMESTAMPDIFF(MONTH,'1994-06-26',SYSDATE()) AS 'n mois';
+
 /*-101-*/
-select round(avg(sal+comm),2) as 'Revenus moyen' from employes where emploi = 'VENDEUR';
+SELECT ROUND(AVG(sal+comm),2) AS 'Revenus moyen' FROM employes WHERE emploi = 'VENDEUR';
+
 /*-102-*/
-select emploi, round(avg(sal+ifnull(comm,0)),2) as 'Revenus moyen' from employes group by emploi;
+SELECT emploi, ROUND(AVG(sal+IFNULL(comm,0)),2) AS 'Revenus moyen' FROM employes GROUP BY emploi;
+
 /*-103-*/
-select sum(sal) 'somme salaires', sum(comm) 'somme commissions' from employes where emploi = 'VENDEUR';
+SELECT SUM(sal) 'somme salaires', SUM(comm) 'somme commissions' FROM employes WHERE emploi = 'VENDEUR';
+
 /*-104-*/
+SELECT MAX(sal) AS 'MAX', MIN(sal) AS 'MIN', (MAX(sal) - MIN(sal)) AS 'MAX - MIN' FROM employes;
 
-=======
-create database [if not exists] emp_serv;
-create table employes
+/*-105-*/
+SELECT YEAR(embauche) AS Annee, COUNT(noemp) AS "Nombre d'employes" FROM employes GROUP BY YEAR(embauche);
+
+/*-106-*/
+SELECT service, MIN(LENGTH(service)) AS 'n lettres' FROM services WHERE LENGTH(service) = (SELECT MIN(LENGTH(service)) FROM services);
+
+/*-107-*/
+SELECT nom, emploi, sal/12 FROM employes WHERE sal IN (SELECT MIN(sal) FROM employes);
+
+/*-108-*/
+SELECT COUNT(noemp) FROM employes WHERE noserv = 3 AND comm IS NOT NULL;
+
+/*-109-*/
+SELECT noserv, COUNT(DISTINCT emploi) 'n emploi differents' FROM employes WHERE noserv = 1;
+
+/*-110-*/
+SELECT COUNT(noemp) AS 'nb employes du s3' FROM employes WHERE noserv = 3;
+
+/*-111-*/
+SELECT s.noserv, service, ROUND(AVG(sal)) AS 'sal moyen' FROM services s 
+INNER JOIN employes e ON s.noserv = e.noserv GROUP BY s.noserv;
+
+/*-112-*/
+SELECT s.noserv, service, ROUND(AVG(sal)) AS 'sal moyen' FROM employes e 
+INNER JOIN services s ON s.noserv = e.noserv WHERE e.emploi != 'DIRECTEUR' AND emploi != 'PRESIDENT' GROUP BY s.noserv;
+
+/*-113-114-*/
+SELECT s.noserv, s.service, e.emploi, COUNT(e.noemp) effectifs, AVG(e.sal) 'salaire moyen' FROM employes e 
+INNER JOIN services s ON e.noserv = s.noserv GROUP BY s.service, e.emploi ORDER BY 1;
+
+SELECT s.noserv, s.service, e.emploi, COUNT(e.noemp) effectifs, AVG(e.sal) 'salaire moyen' FROM employes e 
+INNER JOIN services s ON e.noserv = s.noserv GROUP BY s.noserv, e.emploi ORDER BY 1;
+
+/*-115-*/
+SELECT e.emploi, COUNT(e.noemp) effectifs, AVG (e.sal) 'salaire moyen' FROM employes e GROUP BY e.emploi HAVING COUNT(e.noemp) > 2;
+
+/*-116-*/
+SELECT s.service, e.emploi, COUNT(*) effectifs 
+FROM services s INNER JOIN employes e ON s.noserv = e.noserv 
+WHERE e.emploi = 'VENDEUR' GROUP BY s.noserv HAVING COUNT(*) >= 2;
+
+/*-117-*/
+SELECT s.service, AVG(IFNULL(e.comm,0)) 'comm moyenne'
+FROM services s INNER JOIN employes e ON s.noserv = e.noserv
+GROUP BY s.service HAVING AVG(IFNULL(e.comm,0)) > AVG(e.sal/4);
+
+/*-118-*/----------------
+SELECT emploi, AVG(sal) FROM employes GROUP BY emploi HAVING AVG(sal) >
+(SELECT AVG(sal) FROM employes WHERE emploi = 'DIRECTEUR');
+
+/*-119-*/
+SELECT s.service, COUNT(if (comm IS NULL,0, NULL)) 'touche pas comm', COUNT(e.comm) 'touche comm' FROM services s 
+INNER JOIN employes e ON s.noserv = e.noserv GROUP BY s.service;
+
+/*-120-*/
+SELECT emploi, COUNT(sal) 'n sal', ROUND(AVG(sal),2) 'moyenne sal', SUM(sal) 'somme sal',
+       COUNT(comm) 'n comm', ROUND(AVG(IFNULL(comm,0)),2) 'moyenne comm', SUM(IFNULL(comm,0)) 'somme comm',
+       (COUNT(sal) + COUNT(comm)) 'n sal & comm', ROUND(AVG(sal + IFNULL(comm,0)),2) 'moyenne sal & comm', SUM(sal + IFNULL(comm,0)) 'somme sal & comm'
+FROM employes GROUP BY emploi;
+
+/*Copie table*/
+CREATE TABLE employes2 LIKE employes; 
+INSERT employes2 SELECT * FROM employes;
+
+/*-121-*/
+START TRANSACTION;
+UPDATE employes2 SET sal = (sal + (10/100*sal)) WHERE sal < (SELECT AVG(sal) FROM employes2);
+COMMIT;
+
+/*-122-*/
+START TRANSACTION;
+INSERT INTO employes2 (noemp, nom, prenom, embauche, sal) 
+VALUES (1400, 'DEBU', 'REMI', SYSDATE(), 61000);
+
+UPDATE employes2 SET sup = 1000, noserv = 4, comm = 0.01, emploi = 'DIRECTEUR' WHERE noemp = 1400;
+COMMIT;
+
+/*-123-*/
+START TRANSACTION;
+DELETE FROM employes2 WHERE emploi = 'SECRETAIRE';
+COMMIT;
+
+/*-124-*/
+START TRANSACTION;
+INSERT INTO employes2 (nom, prenom, noemp, embauche, sup, comm, noserv, sal)
+SELECT 'MOYEN', 'TOTO', 1010, '1999-12-12', 1000, NULL, 1, AVG(sal) from employes2;
+COMMIT;
+
+/*-125-*/
+START TRANSACTION;
+DELETE FROM employes2 WHERE nom LIKE '%A%';
+SELECT nom from employes2;
+ROLLBACK;
+SELECT nom from employes2;
+
+/*-126-*/
+CREATE TABLE projet 
 (
-    noemp int(4) primary key not null,
-    nom varchar(20),
-    prenom varchar(20),
-    emploi varchar(20),
-    sup int(4),
-    embauche date,
-    sal decimal(9,2),
-    comm decimal(9,2),
-    noserv int(2) not null
+    noproj int(3) NOT NULL,
+    nomproj varchar(10),
+    budget decimal(8,2)
 );
-create table services
-(
-    noserv int(2) not null,
-    service varchar(20),
-    ville varchar(20),
-    primary key (noserv)
-);
+SHOW tables;
+DESCRIBE projet;
 
-alter table employes
-add constraint foreign key (noserv) references services(noserv);
-alter table employes
-add constraint foreign key (sup) references employes(noemp);
+ALTER TABLE projet RENAME TO proj;
 
-insert into services(noserv,service,ville) 
-values 
-(1,'DIRECTION','PARIS'),
-(2,'LOGISTIQUE','SECLIN'),
-(3,'VENTES','ROUBAIX'),
-(4,'FORMATION',"VILLENEUVE D'ASCQ"),
-(5,'INFORMATIQUE','LILLE'),
-(6,'COMPTABILITE','LILLE'),
-(7,'TECHNIQUE','ROUBAIX');
+/*-127-*/
+SET AUTOCOMMIT = 0;
+INSERT INTO proj (noproj, nomproj, budget)
+VALUES 
+(101, 'alpha', 250000),
+(102, 'beta', 175000),
+(103, 'gamma', 950000);
+COMMIT;
 
-insert into employe(noemp,nom,prenom,emploi,sup,embauche,sal,comm,noserv)
-values
-(1000,'LEROY','PAUL','PRESIDENT',null,'1987-10-25',55005.5,null,1),
-(1100,'DELPIERRE','DOROTHEE','SECRETAIRE',1000,'1987-10-25',12351.24,null,1);
-(1101,'DUMONT','LOUIS','VENDEUR',1300,'1987-10-25',9047.9, 0.0, 1),
-(1102,'MINET','MARC','VENDEUR',1300,'1987-10-25',8085.81,17230,1),
-(1104,'NYS','ETIENNE','TECHNICIEN',1200,'1987-10-25',12342.23,null,1),
-(1105,'DENIMAL','JEROME','COMPTABLE',1600,'1987-10-25',15746.57,null,1),
-(1200,'LEMAIRE','GUY','DIRECTEUR',1000,'1987-03-11',36303.63,null,2),
-(1201,'MARTIN','JEAN','TECHNICIEN',1200,'1987-06-25',11235.12,null,2),
-(1202,'DUPONT','JACQUES','TECHNICIEN',1200,'1988-10-30',10313.03,null,2),
-(1300,'LENOIR','GERARD','DIRECTEUR',1000,'1987-04-02',31353.14,13071,3),
-(1301,'GERARD','ROBERT','VENDEUR',1300,'1999-04-16',7694.77,12430,3),
-(1303,'MASURE','EMILE','TECHNICIEN',1200,'1988-06-17',10451.05,null,3),
-(1500,'DUPONT','JEAN','DIRECTEUR',1000,'1987-10-23',28434.84,null,5),
-(1501,'DUPIRE','PIERRE','ANALYSTE',1500,'1984-10-24',23102.31,null,5),
-(1502,'DURAND','BERNARD','PROGRAMMEUR',1500,'1987-07-30',13201.32,null,5),
-(1503,'DELNATTE','LUC','PUPITREUR',1500,'1999-01-15',8801.01,null,5),
-(1600,'LAVARE','PAUL','DIRECTEUR',1000,'1991-12-13',31238.12,null,5),
-(1601,'CARON','ALAIN','COMPTABLE',1600,'1985-09-16',33003.3,null,5),
-(1602,'DUBOIS','JULES','VENDEUR',1300,'1990-12-20',9520.95,35535,5),
-(1603,'MOREL','ROBERT','COMPTABLE',1600,'1985-07-18',33003.3,null,5),
-(1604,'HAVET','ALAIN','VENDEUR',1300,'1991-01-01',9388.94,33415,5),
-(1605,'RICHARD','JULES','COMPTABLE',1600,'1985-10-22',33503.35,null,6),
-(1615,'DUPREZ','JEAN','BALAYEUR',1000,'1998-10-22',6000.6,null,6);
+/*-128-*/
+SET AUTOCOMMIT = 0;
+UPDATE proj SET budget = 1500000 WHERE noproj = 103;
+ALTER TABLE proj
+MODIFY budget decimal (11,2);
+COMMIT;
 
-insert into employes(noemp,nom,prenom,emploi,sup,embauche,sal,comm,noserv)
-values
-(1105,'DENIMAL','JEROME','COMPTABLE',1600,'1987-10-25',15746.57,null,1),
-(1102,'MINET','MARC','VENDEUR',1300,'1987-10-25',8085.81,17230,1),
-(1101,'DUMONT','LOUIS','VENDEUR',1300,'1987-10-25',9047.9, 0.0, 1),
-(1104,'NYS','ETIENNE','TECHNICIEN',1200,'1987-10-25',12342.23,null,1),
-(1100,'DELPIERRE','DOROTHEE','SECRETAIRE',1000,'1987-10-25',12351.24,null,1),
-(1000,'LEROY','PAUL','PRESIDENT',null,'1987-10-25',55005.5,null,1),
-(1202,'DUPONT','JACQUES','TECHNICIEN',1200,'1988-10-30',10313.03,null,2),
-(1201,'MARTIN','JEAN','TECHNICIEN',1200,'1987-06-25',11235.12,null,2),
-(1200,'LEMAIRE','GUY','DIRECTEUR',1000,'1987-03-11',36303.63,null,2),
-(1301,'GERARD','ROBERT','VENDEUR',1300,'1999-04-16',7694.77,12430,3),
-(1303,'MASURE','EMILE','TECHNICIEN',1200,'1988-06-17',10451.05,null,3),
-(1300,'LENOIR','GERARD','DIRECTEUR',1000,'1987-04-02',31353.14,13071,3),
-(1603,'MOREL','ROBERT','COMPTABLE',1600,'1985-07-18',33003.3,null,5),
-(1601,'CARON','ALAIN','COMPTABLE',1600,'1985-09-16',33003.3,null,5),
-(1503,'DELNATTE','LUC','PUPITREUR',1500,'1999-01-15',8801.01,null,5),
-(1502,'DURAND','BERNARD','PROGRAMMEUR',1500,'1987-07-30',13201.32,null,5),
-(1501,'DUPIRE','PIERRE','ANALYSTE',1500,'1984-10-24',23102.31,null,5),
-(1604,'HAVET','ALAIN','VENDEUR',1300,'1991-01-01',9388.94,33415,5),
-(1602,'DUBOIS','JULES','VENDEUR',1300,'1990-12-20',9520.95,35535,5),
-(1600,'LAVARE','PAUL','DIRECTEUR',1000,'1991-12-13',31238.12,null,5),
-(1500,'DUPONT','JEAN','DIRECTEUR',1000,'1987-10-23',28434.84,null,5),
-(1605,'RICHARD','JULES','COMPTABLE',1600,'1985-10-22',33503.35,null,6),
-(1615,'DUPREZ','JEAN','BALAYEUR',1000,'1998-10-22',6000.6,null,6);
+/*-129-*/
+SET AUTOCOMMIT = 0;
+ALTER TABLE employes2
+ADD noproj int(3);
+SELECT * from employes2;
+COMMIT;
 
-/*-1-*/
-select * from services;
-/*-2-*/
-select noserv, service, ville from services;
-/*-3-*/
-select noserv, service from services;
-/*-4-*/
-select * from employes;
-/*-5-*/
-select emploi from employes;
-/*-6-*/
-select distinct emploi from employes;
-/*-7-*/
-select * from employes where noserv=3;
-/*-8-*/
-select noemp, nom, prenom, noserv from employes where emploi = "TECHNICIEN";
-/*-9-*/
-select noserv, service from services where noserv > 2;
-/*-10-*/
-select noserv, service from services where noserv <= 2;
-/*-11-*/
-select * from employes where comm < sal;
-select * from employes where comm < sal or comm is null;
-/*-12-*/
-select * from employes where comm is null or comm = 0;
-/*-13-*/
-select * from employes where comm is not null order by comm;
-/*-14-*/
-select * from employes where sup is not null;
-/*-15-*/
-select * from employes where sup is null;
-/*-16-*/
-select nom, emploi, sal, noserv from employes where noserv = 5 and sal > 20000;
-/*-17-*/
-select * from employes where noserv = 6 and emploi = "VENDEUR" and sal >= 9500;
-/*-18-*/
-select * from employes where emploi = "PRESIDENT" or emploi = "DIRECTEUR";
-/*-19-*/
-select * from employes where emploi = "DIRECTEUR" and noserv != 3;
-/*-20-*/
-select * from employes where (noserv = 1 and emploi = "TECHNICIEN") or emploi = "DIRECTEUR";
-/*-21-*/
-select * from employes where noserv = 1 and (emploi = "TECHNICIEN" or emploi = "DIRECTEUR");
-/*-22-*/
-select * from employes where noserv = 1 and (emploi = "DIRECTEUR" or emploi = "TECHNICIEN");
-/*-23-*/
-select * from employes where noserv = 1 and emploi != "DIRECTEUR" and emploi != "TECHNICIEN";
-/*-24-*/
-select * from employes where emploi in ('TECHNICIEN','COMPTABLE','VENDEUR');
-/*-25-*/
-select * from employes where emploi not in ('TECHNICIEN', 'COMPTABLE', 'VENDEUR');
-/*-26-*/
-select * from employes where emploi = 'DIRECTEUR' and noserv in (2,4,5);
-/*-27-*/
-select * from employes where sup is not null and noserv not in (1,3,5);
-/*-28-*/
-select * from employes where sal between 20000 and 40000;
-/*-29-*/
-select * from employes where sal not between 20000 and 40000;
-/*-30-*/
-select * from employes where emploi != 'DIRECTEUR' and embauche between '1988-01-01' and '1988-12-31';
-select * from employes where emploi != 'DIRECTEUR' and embauche like '1988%';
-/*-31-*/
-select * from employes where emploi = 'DIRECTEUR' and noserv between 2 and 5;
-/*-32-*/
-select * from employes where nom like 'M%';
-/*-33-*/
-select * from employes where nom like '%T';
-/*-34-*/
-select * from employes where nom like '%E%E%';
-/*-35-*/
-select * from employes where nom like '%E%' and nom not like '%E%E%';
-/*-36-*/
-select * from employes where nom like '%N%' and nom like '%O%';
-/*-37-*/
-select * from employes where nom like '_____N';
-/*-38-*/
-select * from employes where nom like '__R%';
-/*-39-*/
-select * from employes where nom not like '_____';
-/*-40-*/
-select nom, prenom, noserv, sal from employes where noserv = 3 order by sal asc;
-/*-41-*/
-select nom, prenom, noserv, sal from employes where noserv = 3 order by sal desc;
-/*-42-*/
-select nom, prenom, noserv, sal from employes where noserv = 3 order by 4 asc;
-select nom, prenom, noserv, sal from employes where noserv = 3 order by 4 desc;
-/*-43-*/
-select nom, prenom, noserv, sal, emploi from employes order by emploi asc, sal desc;
-/*-44-*/
-select nom, prenom, noserv, sal, emploi from employes order by 5 asc, 4 desc;
-/*-45-*/
-select nom, prenom, noserv, comm from employes where noserv = 3 order by comm;
-/*-46-*/
-select nom, prenom, noserv, comm from employes where noserv = 3 and comm order by comm desc;
-/*-47-*/
-select nom, prenom, emploi, service from employes join services on employes.noserv = services.noserv;
-/*-48-*/
-select nom, emploi, employes.noserv, service from employes join services on employes.noserv = services.noserv;
-/*-49-*/
-select nom, emploi, s.noserv, service from employes as e join services as s on e.noserv = s.noserv;
-/*-50-*/
-select nom, emploi, services.* from employes join services on employes.noserv = services.noserv;
-/*-51-*/
-select e1.nom as nomEmploye, e1.embauche as embaucheEmploye, e1.sup as numeroSuperieur, e2.noemp as numeroEmploye, e2.nom as nomChef, e2.embauche as embaucheChef
-from employes as e1 left join employes as e2 on e1.sup = e2.noemp
-where e1.embauche < e2.embauche order by e1.nom,e2.nom;
+/*-130-*/
+SET AUTOCOMMIT = 0;
+UPDATE employes2 SET noproj = 102 WHERE noemp > 1350 and noproj IS NULL;
+COMMIT;
 
-select e1.nom as nomEmploye, e1.embauche as embaucheEmploye, e1.sup as numeroSuperieur, e2.noemp as numeroEmploye, e2.nom as nomChef, e2.embauche as embaucheChef
-from employes as e1 inner join employes as e2 on e1.sup = e2.noemp
-where e1.embauche < e2.embauche order by e1.nom,e2.nom;
-/*-52-*/
-select prenom from employes where emploi = 'DIRECTEUR'
-union 
-select prenom from employes where emploi = 'TECHNICIEN' and noserv = 1;
-/*-53-*/
-select services.noserv from services where noserv not in (select services.noserv from services join employes on services.noserv = employes.noserv);
-select services.noserv from employes right join services on employes.noserv = services.noserv where employes.noserv is null;
-/*-54-*/
-select distinct services.noserv, services.service from employes left join services on employes.noserv = services.noserv where employes.noserv is not null;
-/*-55-*/
-select * from employes where employes.noserv in (select services.noserv from services where ville = 'LILLE');
-select employes.*, services.ville from employes,services where employes.noserv in (select s1.noserv from services as s1 where ville = 'LILLE') and employes.noserv = services.noserv;
-/*-56-*/
-select * from employes as e1 where e1.nom != 'DUBOIS' and exists (select * from employes as e2 where e1.sup = e2.sup and e2.nom = 'DUBOIS');
-select * from employes where sup = ( select sup from employes where nom = 'DUBOIS' ) and nom != 'DUBOIS';
-select e2.* from employes as e1 join employes as e2 on e1.sup = e2.sup where e1.nom = 'DUBOIS' and e2.nom != e1.nom;
-/*-57-*/
-select * from employes where embauche in (select embauche from employes where nom = 'DUMONT');
-/*-58-*/
-select nom, e1.embauche from employes e1 where embauche < (select e2.embauche from employes e2 where nom = 'MINET') order by embauche;
-/*-59-*/
-select nom, prenom, embauche from employes where embauche < all(select e2.embauche from employes e2 where e2.noserv = 6);
-select nom, prenom, embauche from employes where embauche < (select min(e2.embauche) from employes as e2 where e2.noserv = 6);
-/*-60-*/
-select nom, prenom, sal from employes where sal > (select min(e2.sal) from employes e2 where e2.noserv = 3) order by sal;
-select nom, prenom, sal from employes e1 where exists ( select * from employes e2 where e2.noserv = 3 and e1.sal > e2.sal) order by sal;
-/*-61-*/
-select nom, e1.noserv, emploi, sal from employes e1 inner join services s1 on e1.noserv = s1.noserv 
-where s1.ville in (select ville from employes e2 inner join services s2 on e2.noserv = s2.noserv where nom = 'HAVET');
+/*-131-*/
+SET AUTOCOMMIT = 0;
+UPDATE employes2 SET noproj = 103 WHERE noproj IS NULL;
+COMMIT;
 
-select nom, noserv, emploi, sal from employes natural join services
-where ville in (select ville from services natural join employes where nom = 'HAVET');
-/*-62-*/
-select * from employes where noserv = 1 and emploi in (select emploi from employes where noserv = 3);
-/*-63-*/
-select * from employes where noserv = 1 and emploi not in (select emploi from employes where noserv = 3);
-/*-64-*/
-select nom, prenom, emploi, sal from employes 
-where emploi in (select emploi from employes where nom = 'CARON') and sal > (select sal from employes where nom = 'CARON');
-/*-65-*/
-select * from employes 
-where noserv = 1 and emploi in (select e1.emploi from employes e1 inner join services s1 on e1.noserv = s1.noserv where s1.service = 'VENTES');
-/*-66-*/
-select * from employes e1 inner join services s1 on e1.noserv = s1.noserv 
-where ville = 'LILLE' and emploi in (select emploi from employes where nom = 'RICHARD') and nom != 'RICHARD' order by nom;
-/*-67-*/
-select * from employes where sal > (select avg(sal) from employes) order by noserv;
-/*-68-*/
-select * from employes e1 inner join services s1 on e1.noserv = s1.noserv 
-where service = 'INFORMATIQUE' and DATE_FORMAT(e1.embauche,'%Y') 
-in (select DATE_FORMAT(e2.embauche,'%Y') from employes e2 inner join services s2 on e2.noserv = s2.noserv where s2.service = 'VENTES');
-/*-69-*/
-select e1.nom, e1.emploi, s1.service from employes e1 
-inner join employes e2 on e1.sup = e2.noemp  
-inner join services s1 on e1.noserv = s1.noserv 
-where e1.noserv != e2.noserv;
-/*-70-*/
-select e2.nom, e2.prenom, s1.service, e2.sal from employes e1 
-inner join employes e2 on e1.sup = e2.noemp  
-inner join services s1 on e1.noserv = s1.noserv group by e2.nom order by 4 desc;
-/*-71-*/
-select nom, emploi, round(sal,2) as Revenu from employes order by sal desc;
-/*-72-*/
-select nom, sal, comm from employes where comm > sal * 2;
-/*-73-*/
-select nom, prenom, emploi, round(comm*100/sal,2) as '% Commissions' from employes where emploi = 'VENDEUR' order by 4 desc;
-/*-74-*/
-select nom, emploi, service, round(sal*12,0) as 'Revenu annuel' from employes inner join services on employes.noserv = services.noserv where emploi = 'VENDEUR';
-/*-75-76-77-*/
-select nom, prenom, emploi, sal as Salaire, round(ifnull(comm,0),0) as 'Gain mensuel', round(sal/12,0) as 'Revenu mensuel' from employes where noserv in (3,5,6);
-/*-78-*/
-select nom, emploi, round(sal/22,2) as 'Salaire journalier', round(sal/22/8,2) as 'Salaire horaire' from employes where noserv in (3,5,6);
-/*-79-*/
-select nom, emploi, truncate(sal/22,2) as 'Salaire journalier', truncate(sal/22/8,2) as 'Salaire horaire' from employes where noserv in (3,5,6);
-/*-80-*/
-select concat(rpad(service,12,' '),' ----> ',ville) as 'Service et Ville' from services;
-/*-81-*/
-select @ce := @ce + 1 as 'code emploi', nom, emploi, from employes, (select @ce := 0) as code_emploi;
-/*-82-*/
-select noemp, left(lpad(nom,length(nom)+5,'*****'),5) as nom, noserv from employes where noserv = 1;
-/*-83-*/
-select substring(service,1,5) from services;
-/*-84-*/
-select * from employes where embauche like '1988%';
-/*-85-*/
-select upper(nom) as NOM, left(upper(nom),1) as N, lower(nom) as nom from employes;
-/*-86-*/
-select locate('M', nom) as M, locate('E', nom) as E, nom from employes;
-/*-87-*/
-select length(service) as 'service nb lettre', service from services;
-/*-88-*/
-select nom, emploi, sal, left(RPAD('',sal/55000*30,'▬'),30) as 'Histogramme des salaires' from employes order by sal desc;
-/*-89-*/
-select nom, emploi, embauche from employes where noserv = 6;
-/*-90-*/
-select nom, emploi, DATE_FORMAT(embauche,'%d-%m-%y') as embauche from employes where noserv = 6;
-/*-91-*/
-select nom, emploi, DATE_FORMAT(embauche,'%a %d %M %Y') as embauche from employes where noserv = 6;
-/*-92-*/
-select nom, emploi, DATE_FORMAT(embauche,'%a %d %b %y') as embauche from employes where noserv = 6;
-/*-93-*/
-select nom, emploi, DATE_FORMAT(embauche,'%y %b %d') as embauche from employes where noserv = 6;
-/*-94-*/
-select nom, emploi, DATE_FORMAT(embauche,'%W-%d-%M-%Y') as embauche from employes where noserv = 6;
-/*-95-*/
-select employes.*, datediff(sysdate(), embauche) as "Jours d'anciennete" from employes;
-/*-96-*/
-select employes.*, TIMESTAMPDIFF(MONTH, embauche, SYSDATE()) as "Mois d'anciennete" from employes;
-/*-97-*/
-
-/*-98-*/
-
-/*-99-*/
-select datediff(sysdate(),'1994-06-26') as 'n jours';
-/*-100-*/
-select TIMESTAMPDIFF(MONTH,'1994-06-26',sysdate()) as 'n mois';
-/*-101-*/
-select round(avg(sal+comm),2) as 'Revenus moyen' from employes where emploi = 'VENDEUR';
-/*-102-*/
-select emploi, round(avg(sal+ifnull(comm,0)),2) as 'Revenus moyen' from employes group by emploi;
-/*-103-*/
-select sum(sal) 'somme salaires', sum(comm) 'somme commissions' from employes where emploi = 'VENDEUR';
-/*-104-*/
-
->>>>>>> 4dd7b61 (maj)
+/*-132-*/
+SELECT nom, nomproj, service FROM employes2 e INNER JOIN proj p ON e.noproj = p.noproj INNER JOIN services2 s ON e.noserv = s.noserv; 

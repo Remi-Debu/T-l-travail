@@ -1,0 +1,49 @@
+body {
+    font-family: Roboto;
+}
+.table-dark {
+    border-color: white;
+}
+
+body {
+    font-family: Roboto;
+}
+.style_formulaire {
+    margin: 2em;
+    width: 300px;
+}
+input {
+    margin-bottom: 1em;
+}
+.form-control {
+    background-color: rgb(219, 219, 219);
+}
+header {
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+img {
+    width: 150px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+.col-lg-12 {
+    padding: 0;
+}
+legend {
+    font-weight: bold;
+}
+.table_emp, .table_serv {
+    width: 95%;
+    position: relative;
+    top: 3em;
+    left: 2em;
+}
+footer {
+    position: relative;
+    top: 5em;
+    background-color: #212529;
+    height: 5em;
+}
