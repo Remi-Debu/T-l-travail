@@ -15,7 +15,7 @@
     if (isset($_GET['noemp'])) {
         $bdd = mysqli_init();
         mysqli_real_connect($bdd, "127.0.0.1", "root", "", "emp_serv");
-        $result = mysqli_query($bdd, "select noemp, nom, prenom, emploi, sup, noserv from employes");
+        $result = mysqli_query($bdd, "SELECT noemp, nom, prenom, emploi, sup, noserv FROM employes");
         $donnees = mysqli_fetch_all($result);
         mysqli_free_result($result);
         mysqli_close($bdd);
@@ -31,47 +31,48 @@
             }
             $i++;
         }
-    
-    echo "<div class='container-fluid'>
-             <div class='row'>
-                 <div class='col-lg-12'>
-                     <div class='style_formulaire'>
-                         <legend>Suppression</legend>
-                         <hr>
-                    
-                         <form action='emp_serv_ecriture.php' method='POST'>
-                             <input id='noemp' type='number' class='form-control' name='noemp' value=$preselec_noemp hidden>
-                        
-                             <label for='nomPersonne'>Nom:</label>
-                             <br>
-                             <input id='nomPersonne' type='text' class='form-control' name='nom' value=$preselec_nom disabled>
+    ?>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <div class='style_formulaire'>
+                        <legend>Suppression</legend>
+                        <hr>
 
-                             <label for='prenomPersonne'>Prénom:</label>
-                             <br>
-                             <input id='prenomPersonne' type='text' class='form-control' name='prenom' value=$preselec_prenom disabled>
+                        <form action='emp_serv_ecriture.php' method='POST'>
+                            <input id='noemp' type='number' class='form-control' name='noemp' value=<?php echo $preselec_noemp ?> hidden>
 
-                             <label for='emploiPersonne'>Emploi:</label>
-                             <br>
-                             <input id='emploiPersonne' type='text' class='form-control' name='emploi' value=$preselec_emploi disabled>
+                            <label for='nomPersonne'>Nom:</label>
+                            <br>
+                            <input id='nomPersonne' type='text' class='form-control' name='nom' value=<?php echo $preselec_nom ?> disabled>
 
-                             <label for='noServ'>N° Service:</label>
-                             <br>
-                             <input id='noServ' type='number' class='form-control' name='noserv' value=$preselec_noserv disabled>
+                            <label for='prenomPersonne'>Prénom:</label>
+                            <br>
+                            <input id='prenomPersonne' type='text' class='form-control' name='prenom' value=<?php echo $preselec_prenom ?> disabled>
 
-                             <input type='submit' class='btn btn-danger btn-sm' name='supprimer' value='Supprimer'>
-                         </form>
+                            <label for='emploiPersonne'>Emploi:</label>
+                            <br>
+                            <input id='emploiPersonne' type='text' class='form-control' name='emploi' value=<?php echo $preselec_emploi ?> disabled>
 
-                         <a href='emp_serv.php'><button class='btn btn-primary btn-lg'>Page d'Accueil</button></a>
-                     </div>
-                 </div>
-             </div>
-         </div>";
+                            <label for='noServ'>N° Service:</label>
+                            <br>
+                            <input id='noServ' type='number' class='form-control' name='noserv' value=<?php echo $preselec_noserv ?> disabled>
+
+                            <input type='submit' class='btn btn-danger btn-sm' name='supprimer' value='Supprimer'>
+                        </form>
+
+                        <a href='emp_serv.php'><button class='btn btn-primary btn-lg'>Page d'Accueil</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php
     }
-    
+
     if (isset($_GET['noserv'])) {
         $bdd = mysqli_init();
         mysqli_real_connect($bdd, "127.0.0.1", "root", "", "emp_serv");
-        $result = mysqli_query($bdd, "select * from services");
+        $result = mysqli_query($bdd, "SELECT * FROM services");
         $donnees = mysqli_fetch_all($result);
         mysqli_free_result($result);
         mysqli_close($bdd);
@@ -84,31 +85,34 @@
             }
             $i++;
         }
-        echo "<div class='container-fluid'>
-                 <div class='row'>
-                     <div class='col-lg-12'>
-                         <div class='style_formulaire'>
-                             <legend>Suppression</legend>
-                             <hr>
-                             <form action='emp_serv_ecriture.php' method='POST'>
-                                 <input id='noserv' type='number' class='form-control' name='noserv' value=$preselec_noserv hidden>
+    ?>
 
-                                 <label for='service'>Service:</label>
-                                 <br>
-                                 <input id='service' type='text' class='form-control' name='service' value=$preselec_service disabled>
-        
-                                 <label for='ville'>Ville:</label>
-                                 <br>
-                                 <input id='ville' type='text' class='form-control' name='ville' value=$preselec_ville disabled>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <div class='style_formulaire'>
+                        <legend>Suppression</legend>
+                        <hr>
+                        <form action='emp_serv_ecriture.php' method='POST'>
+                            <input id='noserv' type='number' class='form-control' name='noserv' value=<?php echo $preselec_noserv ?> hidden>
 
-                                 <input type='submit' class='btn btn-danger btn-sm' name='supprimer' value='Supprimer'>
-                             </form>
+                            <label for='service'>Service:</label>
+                            <br>
+                            <input id='service' type='text' class='form-control' name='service' value=<?php echo $preselec_service ?> disabled>
 
-                             <a href='emp_serv.php'><button class='btn btn-primary btn-lg'>Page d'Accueil</button></a>
-                         </div>
-                     </div>
-                 </div>
-             </div>";
+                            <label for='ville'>Ville:</label>
+                            <br>
+                            <input id='ville' type='text' class='form-control' name='ville' value=<?php echo $preselec_ville ?> disabled>
+
+                            <input type='submit' class='btn btn-danger btn-sm' name='supprimer' value='Supprimer'>
+                        </form>
+
+                        <a href='emp_serv.php'><button class='btn btn-primary btn-lg'>Page d'Accueil</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php
     }
     ?>
 </body>

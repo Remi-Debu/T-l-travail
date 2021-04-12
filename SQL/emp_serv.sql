@@ -585,3 +585,11 @@ COMMIT;
 
 /*-132-*/
 SELECT nom, nomproj, service FROM employes2 e INNER JOIN proj p ON e.noproj = p.noproj INNER JOIN services2 s ON e.noserv = s.noserv; 
+
+/*-mysqli emp_serv-*/
+SELECT e.noemp, e.nom, e.prenom, e.emploi, e.sup, concat(e2.nom, ' ', e2.prenom) AS 'superieur', e.noserv, s.service FROM employes AS e
+INNER JOIN services AS s on e.noserv = s.noserv
+INNER JOIN employes AS e2 on e.sup = e2.noemp OR e.sup IS NULL
+GROUP BY noemp;
+
+ALTER TABLE employes DROP CONSTRAINT employes_ibfk_1;
