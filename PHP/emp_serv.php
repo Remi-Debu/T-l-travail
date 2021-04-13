@@ -22,10 +22,10 @@
         <?php
         $bdd = mysqli_init();
         mysqli_real_connect($bdd, "127.0.0.1", "root", "", "emp_serv");
-        $result = mysqli_query($bdd, "SELECT e.noemp, e.nom, e.prenom, e.emploi, concat(e2.nom, ' ', e2.prenom) AS 'nom sup', e.noserv, s.service FROM employes AS e
+        $result = mysqli_query($bdd, "SELECT e.noemp, e.nom, e.prenom, e.emploi, concat(e2.nom, ' ', e2.prenom) AS 'nom sup', e.noserv, s.service, e.sup FROM employes AS e
                                       INNER JOIN services AS s on e.noserv = s.noserv
                                       INNER JOIN employes AS e2 on e.sup = e2.noemp OR e.sup IS NULL
-                                      GROUP BY noemp");
+                                      GROUP BY noemp ORDER BY e.noserv, e.noemp ASC");
         $donnees = mysqli_fetch_all($result);
         mysqli_free_result($result);
         mysqli_close($bdd);
@@ -53,7 +53,7 @@
                         <?php
                         $i = 0;
                         while ($i < count($donnees)) {
-                            if ($donnees[$i][0] == 1000) {
+                            if ($donnees[$i][7] == NULL) {
                                 $donnees[$i][4] = "═════════";
                             }
                             $get_noemp = $donnees[$i][0];

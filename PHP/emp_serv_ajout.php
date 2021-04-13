@@ -23,19 +23,19 @@
                          <form action='emp_serv_ecriture.php' method='POST'>
                              <label for='noemploye'>N° Employé:</label>
                              <br>
-                             <input id='noemploye' type='number' class='form-control' name='noemp' placeholder='Entrez N° employé' autofocus>
+                             <input id='noemploye' type='number' class='form-control' name='noemp' placeholder='Entrez N° employé' required autofocus>
 
                              <label for='nomPersonne'>Nom:</label>
                              <br>
-                             <input id='nomPersonne' type='text' class='form-control' name='nom' placeholder='Entrez votre nom'>
+                             <input id='nomPersonne' type='text' class='form-control' name='nom' placeholder='Entrez votre nom' required>
 
                              <label for='prenomPersonne'>Prénom:</label>
                              <br>
-                             <input id='prenomPersonne' type='text' class='form-control' name='prenom' placeholder='Entrez votre prénom'>
+                             <input id='prenomPersonne' type='text' class='form-control' name='prenom' placeholder='Entrez votre prénom' required>
 
                              <label for='emploiPersonne'>Emploi:</label>
                              <br>
-                             <input id='emploiPersonne' type='text' class='form-control' name='emploi' placeholder='Entrez votre emploi'>
+                             <input id='emploiPersonne' type='text' class='form-control' name='emploi' placeholder='Entrez votre emploi' required>
 
                              <label for='nosup'>N° Supérieur:</label>
                              <br>
@@ -43,11 +43,11 @@
 
                              <label for='dateembauche'>Date d'embauche:</label>
                              <br>
-                             <input id='dateembauche' type='date' class='form-control' name='embauche'>
+                             <input id='dateembauche' type='date' class='form-control' name='embauche' required>
 
                              <label for='salaire'>Salaire:</label>
                              <br>
-                             <input id='salaire' type='number' class='form-control' name='sal' placeholder='Entrez votre salaire'>
+                             <input id='salaire' type='number' class='form-control' name='sal' placeholder='Entrez votre salaire' required>
 
                              <label for='commission'>Commission:</label>
                              <br>
@@ -55,7 +55,7 @@
 
                              <label for='noService'>N° Service:</label>
                              <br>
-                             <input id='noService' type='number' class='form-control' name='noserv' placeholder='Entrez N° service'>
+                             <input id='noService' type='number' class='form-control' name='noserv' placeholder='Entrez N° service' required>
 
                              <input type='submit' class='btn btn-success btn-sm' name='ajouter' value='Ajouter'>
                              <input type='reset' class='btn btn-warning btn-sm' value='Réinitialiser'>
@@ -79,15 +79,15 @@
                              <form action='emp_serv_ecriture.php' method='POST'>
                                  <label for='noservice'>N° service:</label>
                                  <br>
-                                 <input id='noservice' type='number' class='form-control' name='noserv' placeholder='Entrez le N° service' autofocus>
+                                 <input id='noservice' type='number' class='form-control' name='noserv' placeholder='Entrez le N° service' required autofocus>
 
                                  <label for='serv'>Service:</label>
                                  <br>
-                                 <input id='serv' type='text' class='form-control' name='service' placeholder='Entrez le service'>
+                                 <input id='serv' type='text' class='form-control' name='service' placeholder='Entrez le service' required>
         
                                  <label for='vill'>Ville:</label>
                                  <br>
-                                 <input id='vill' type='text' class='form-control' name='ville' placeholder='Entrez la ville'>
+                                 <input id='vill' type='text' class='form-control' name='ville' placeholder='Entrez la ville' required>
 
                                  <input type='submit' class='btn btn-success btn-sm' name='ajouter' value='Ajouter'>
                                  <input type='reset' class='btn btn-warning btn-sm' value='Réinitialiser'>

@@ -42,6 +42,10 @@
                         <form action='emp_serv_ecriture.php' method='POST'>
                             <input id='noemp' type='number' class='form-control' name='noemp' value=<?php echo $preselec_noemp ?> hidden>
 
+                            <label for='noemploye'>N° Employé:</label>
+                            <br>
+                            <div class="imitation_input2"><?php echo "$preselec_noemp" ?></div>
+
                             <label for='nomPersonne'>Nom:</label>
                             <br>
                             <input id='nomPersonne' type='text' class='form-control' name='nom' value=<?php echo $preselec_nom ?> disabled>

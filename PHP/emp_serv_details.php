@@ -61,13 +61,13 @@
                         <br>
                         <input id='prenomPersonne' type='text' class='form-control' name='prenom' value=<?php echo $preselec_prenom ?> disabled>
 
-                        <label for='embauche'>Date d'embauche:</label>
-                        <br>
-                        <input id='embauche' type='date' class='form-control' name='embauche' value=<?php echo $preselec_embauche ?> disabled>
-
                         <label for='emploiPersonne'>Emploi:</label>
                         <br>
                         <input id='emploiPersonne' type='text' class='form-control' name='emploi' value=<?php echo $preselec_emploi ?> disabled>
+
+                        <label for='embauche'>Date d'embauche:</label>
+                        <br>
+                        <input id='embauche' type='date' class='form-control' name='embauche' value=<?php echo $preselec_embauche ?> disabled> 
 
                         <label for='salaire'>Salaire:</label>
                         <br>
