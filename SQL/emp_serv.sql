@@ -593,3 +593,25 @@ INNER JOIN employes AS e2 on e.sup = e2.noemp OR e.sup IS NULL
 GROUP BY noemp;
 
 ALTER TABLE employes DROP CONSTRAINT employes_ibfk_1;
+
+SELECT e2.noemp FROM employes e INNER JOIN employes e2 ON e.sup = e2.noemp GROUP BY e2.noemp; --Employés qui ont des subalternes
+SELECT s.noserv FROM services s INNER JOIN employes e ON s.noserv = e.noserv GROUP BY s.noserv; --Services qui ont des employés
+
+SELECT DATE_FORMAT(SYSDATE(), '%Y-%m-%d');
+SELECT COUNT(*) FROM services WHERE counter = DATE_FORMAT(SYSDATE(), '%Y-%m-%d');
+
+CREATE TABLE utilisateurs
+(
+    id int(4) primary key NOT NULL,
+    nom varchar(20),
+    mdp varchar(20)
+);
+INSERT INTO utilisateurs (id, nom, mdp)
+VALUES (1,'nomtest','mdptest');
+
+ALTER TABLE utilisateurs MODIFY id int(4) AUTO_INCREMENT;
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY '';
+GRANT ALL ON emp_serv.employes TO 'admin'@'localhost';
+GRANT ALL ON emp_serv.services TO 'admin'@'localhost';
+GRANT ALL ON emp_serv.utilisateurs TO 'admin'@'localhost';
