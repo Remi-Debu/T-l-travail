@@ -1,41 +1,40 @@
 //Ex 1
 let body = document.body;
 
-let elDivTP1 = document.createElement("divTP1");
+let divTP1 = document.createElement("divTP1");
+body.appendChild(divTP1);
 
 let text1 = document.createTextNode("Le ");
-elDivTP1.appendChild(text1);
-
-body.appendChild(elDivTP1);
+divTP1.appendChild(text1);
 
 let elStrong = document.createElement("Strong");
 elStrong.textContent = "World Wild Web Consortium";
-elDivTP1.appendChild(elStrong);
+divTP1.appendChild(elStrong);
 
 let text2 = document.createTextNode(", abrégé par le sigle ");
-elDivTP1.appendChild(text2);
+divTP1.appendChild(text2);
 
 let elStrong2 = document.createElement("Strong");
 elStrong2.textContent = "W3C";
-elDivTP1.appendChild(elStrong2);
+divTP1.appendChild(elStrong2);
 
 let text3 = document.createTextNode(", est un ");
-elDivTP1.appendChild(text3);
+divTP1.appendChild(text3);
 
-let elA = document.createElement("a");
-elA.href = "https://fr.wikipedia.org/wiki/Organisme_de_normalisation";
-elA.title = "Organisme de normalisation";
-elA.textContent = "organisme de standardisation ";
-elDivTP1.appendChild(elA);
+const link1 = createLinkElement("https://fr.wikipedia.org/wiki/Organisme_de_normalisation", "Organisme de normalisation", "organisme de standardisation ", divTP1);
 
 let text4 = document.createTextNode(" à but non-lucratif chargé de promouvoir la compatibilité des technologies du ");
-elDivTP1.appendChild(text4);
+divTP1.appendChild(text4);
 
-let elA2 = document.createElement("a");
-elA2.href = "https://fr.wikipedia.org/wiki/Word_Wide_Web";
-elA2.title = "Word Wide Web";
-elA2.textContent = "Word Wide Web";
-elDivTP1.appendChild(elA2);
+const link2 = createLinkElement("https://fr.wikipedia.org/wiki/Word_Wide_Web", "Word Wide Web", "Word Wide Web", divTP1);
+
+function createLinkElement(href, title, textContent, parent) {
+    const link = document.createElement("a");
+    link.href = href;
+    link.title = title;
+    link.textContent = textContent;
+    divTP1.appendChild(link);
+}
 
 //Ex 2
 let elDivTP2 = document.createElement("divTP2");
@@ -51,6 +50,7 @@ let elFieldset = document.createElement("fieldset");
 elDivTP2.appendChild(elFieldset);
 
 let elLegend = document.createElement("legend");
+elLegend.textContent = "Uploader une image";
 elFieldset.appendChild(elLegend);
 
 let elDiv = document.createElement("div");
